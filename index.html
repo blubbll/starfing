@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/halp.css" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.0.0/pixi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/4.1.5/cash.min.js"></script>
+
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <canvas></canvas>
+    <div id="homepage" class="middle">
+      <div id="terminal">
+        <div>
+          <div id="controls" class="middle">
+            <span></span><span></span><span></span>
+            <div class="taille"></div>
+          </div>
+          <div>
+            <span>Key: <span id="key"></span></span>
+          </div>
+        </div>
+        <div id="content"></div>
+      </div>
+      <span class="taille"></span>
+    </div>
+  </body>
+  <script src="/bg.js"></script>
+</html>
