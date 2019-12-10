@@ -27,12 +27,13 @@ const commands = {
 const prephrase =
   '<span class="green">starfinger </span><span class="red">#</span> ';
 
-const reset = () =>{return $(
-  "<div>" +
-    prephrase +
-    '<form id="form"><input type="text" class="nostyle" term autofocus /></form>'
-).appendTo("#content");
-                   }
+const reset = () => {
+  return $(
+    "<div>" +
+      prephrase +
+      '<form id="form"><input type="text" class="nostyle" term autofocus /></form>'
+  ).appendTo("#content");
+};
 const form = reset();
 function launchCommand(command) {
   $(
@@ -61,18 +62,31 @@ $("form").on("submit", function(e) {
     if ($("input").val() === "clear") {
       $("#content div").remove();
       reset();
-       $("input") && $("input")[0].focus();
+      $("input") && $("input")[0].focus();
     }
-    $("input").val("")
+    $("input").val("");
   }
   //$('input').val('');$('#content').getNiceScroll(0).resize().doScrollTop($('#content')[0].scrollHeight, 0);
 });
 
 $(document).on("keyup", "input", function(event) {
   const keyCode = event.which || event.keyCode || event.charCode;
-  const chr = $("input").val().slice(-1);
+  const chr = $("input")
+    .val()
+    .slice(-1);
   const tx = chr + "(" + keyCode + ")";
-  console.log("Key: " + tx)
+  console.log("Key: " + tx);
+
+  const fix = to => {
+    const ol = $("input").val();
+    $("input").val(ol.replace(ol.slice(-1), ""));
+  };
+  switch (keyCode) {
+    case 231:
+      fix("o");
+      break;
+  }
+
   $("#key").text(tx);
 });
 
