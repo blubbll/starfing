@@ -70,20 +70,21 @@ $("form").on("submit", function(e) {
 });
 
 $(document).on("keyup", "input", function(event) {
+  const el = $(this);
   const keyCode = event.which || event.keyCode || event.charCode;
-  const chr = $("input")
+  const chr = $(el)
     .val()
     .slice(-1);
   const tx = chr + "(" + keyCode + ")";
   console.log("Key: " + tx);
 
   const fix = to => {
-    const ol = $("input").val();
-    $("input").val(ol.replace(ol.slice(-1), ""));
+    const ol = $(this).val();
+    $(el).val(ol.replace(ol.slice(-1), ""));
   };
   switch (keyCode) {
     case 231:
-      fix("o");
+      fix();
       break;
   }
 
